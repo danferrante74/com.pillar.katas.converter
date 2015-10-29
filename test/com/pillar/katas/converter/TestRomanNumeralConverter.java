@@ -160,6 +160,95 @@ public class TestRomanNumeralConverter {
 	
 	
 	@Test
+	public void whenPassInAnIToGetNumericValue()
+	{
+		IConverterControl controller = new ConverterControlFactory().getConverter(ConverterTypes.ROMAN);
+		try
+		{
+			int expectedValue = 1;
+			String parameter = "I";
+			int value = controller.convertFrom( parameter );
+			assertEquals( expectedValue, value );
+		}
+		catch( NotARomanNumeralException ex )
+		{
+			fail( "Value is not a roman numeral." );			
+		}
+	}	
+	
+	@Test
+	public void whenPassInAnIIIToGetNumericValue()
+	{
+		IConverterControl controller = new ConverterControlFactory().getConverter(ConverterTypes.ROMAN);
+		try
+		{
+			int expectedValue = 3;
+			String parameter = "III";
+			int value = controller.convertFrom( parameter );
+			assertEquals( expectedValue, value );
+		}
+		catch( NotARomanNumeralException ex )
+		{
+			fail( "Value is not a roman numeral." );			
+		}
+	}	
+		
+
+	@Test
+	public void whenPassInAnIXToGetNumericValue()
+	{
+		IConverterControl controller = new ConverterControlFactory().getConverter(ConverterTypes.ROMAN);
+		try
+		{
+			int expectedValue = 9;
+			String parameter = "IX";
+			int value = controller.convertFrom( parameter );
+			assertEquals( expectedValue, value );
+		}
+		catch( NotARomanNumeralException ex )
+		{
+			fail( "Value is not a roman numeral." );			
+		}
+	}	
+	
+	
+	@Test
+	public void whenPassInAnMLXVIToGetNumericValue()
+	{
+		IConverterControl controller = new ConverterControlFactory().getConverter(ConverterTypes.ROMAN);
+		try
+		{
+			int expectedValue = 1066;
+			String parameter = "MLXVI";
+			int value = controller.convertFrom( parameter );
+			assertEquals( expectedValue, value );
+		}
+		catch( NotARomanNumeralException ex )
+		{
+			fail( "Value is not a roman numeral." );			
+		}
+	}	
+	
+
+	@Test
+	public void whenPassInAnMCMLXXXIXToGetNumericValue()
+	{
+		IConverterControl controller = new ConverterControlFactory().getConverter(ConverterTypes.ROMAN);
+		try
+		{
+			int expectedValue = 1989;
+			String parameter = "MCMLXXXIX";
+			int value = controller.convertFrom( parameter );
+			assertEquals( expectedValue, value );
+		}
+		catch( NotARomanNumeralException ex )
+		{
+			fail( "Value is not a roman numeral." );			
+		}
+	}		
+	
+	
+	@Test
 	public void whenPassInAMixedCaseRomanNumeralToGetNumericValue()
 	{
 		IConverterControl controller = new ConverterControlFactory().getConverter(ConverterTypes.ROMAN);
