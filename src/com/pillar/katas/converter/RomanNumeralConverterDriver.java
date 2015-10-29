@@ -27,6 +27,8 @@ public class RomanNumeralConverterDriver {
 		System.out.println( "Little help here...");		
 		System.out.println( "Enter [1] at the Conv> cmd prompt to convert from Arabic Numbers to Roman Numerals.");
 		System.out.println( "Enter [2] at the Conv> cmd prompt to convert from Roman Numerals to Arabic Numbers.");
+		System.out.println( "Enter [quit] at Conv> cmd prompt to exit the application.  Why do that though?" );
+		System.out.println( "Enter [help] at Conv> cmd prompt to print this message again." );
 	}
 	
 	
