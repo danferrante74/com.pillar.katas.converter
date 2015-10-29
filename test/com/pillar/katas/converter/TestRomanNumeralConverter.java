@@ -139,8 +139,27 @@ public class TestRomanNumeralConverter {
 		IConverterControl controller = new ConverterControlFactory().getConverter(ConverterTypes.ROMAN);
 		try
 		{
-			int expectedValue = 1;
-			int value = controller.convertFrom( "I" );
+			int expectedValue = 2999;
+			String roman = controller.convertTo(expectedValue);
+			int value = controller.convertFrom( roman );
+			assertEquals( expectedValue, value );
+		}
+		catch( NotARomanNumeralException ex )
+		{
+			fail( "Value is not a roman numeral." );			
+		}
+	}	
+	
+	
+	@Test
+	public void whenPassInAMixedCaseRomanNumeralToGetNumericValue()
+	{
+		IConverterControl controller = new ConverterControlFactory().getConverter(ConverterTypes.ROMAN);
+		try
+		{
+			String roman = "McMlXxxIx";
+			int expectedValue = 1989;
+			int value = controller.convertFrom( roman );
 			assertEquals( expectedValue, value );
 		}
 		catch( NotARomanNumeralException ex )
