@@ -4,10 +4,10 @@ public interface IConverterControl {
 
 	/**
 	 * 
-	 * @param i
-	 * @return
+	 * @param numericValue integer
+	 * @return String roman numeral
 	 * @throws NotARomanNumeralException
 	 */
-	String convertTo(int i) throws NotARomanNumeralException;
+	String convertTo(int numericValue) throws NotARomanNumeralException;
 
 }
