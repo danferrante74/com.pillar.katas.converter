@@ -10,7 +10,8 @@ public class RomanNumeralConverter implements IConverterControl {
 	/**this here is the data model!!! It normally would be in another class.  view will never mess with this**/
 	private static final int[] numericValues    = {1000, 900 , 500, 400 , 100, 90  , 50 ,  40 , 10 ,   9 ,  5 ,   4 ,  1};
 	private static final String[] numeralValues = {"M" , "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
-
+	private static final String[] invalidValues = {"IIII", "XXXX", "CCCC", "MMMM", "VV", "LL", "DD" };
+	
 	private static final int MAX_ROMAN_NUMERAL = 3999;
 	
 	public RomanNumeralConverter()
@@ -48,9 +49,48 @@ public class RomanNumeralConverter implements IConverterControl {
 
 
 	@Override
-	public int convertFrom(String roman) throws NotARomanNumeralException {
-		// TODO Auto-generated method stub
-		return 1;
+	public int convertFrom(String rn) throws NotARomanNumeralException {
+		if( rn == null || "".equals(rn))
+			throw new NotARomanNumeralException();
+		
+		//check that chars I,X,C,M are repeated max 3 times
+		//check that V, L, D are not repeated
+		rn = rn.toUpperCase();
+		for (int i = 0; i < invalidValues.length; i++) {
+			String invalidValue = invalidValues[i];
+			if( rn.indexOf( invalidValue ) >= 0 )
+			{
+				throw new NotARomanNumeralException();				
+			}
+		}
+		
+		int value = 0;
+		int currentValue = 0;
+		int lastValue = 0;
+		for( int i = (rn.length() - 1); i >= 0; i--)
+		{
+			currentValue = getSegmentValue( String.valueOf( rn.charAt(i) ) );
+			if( currentValue <= 0 ) 
+				throw new NotARomanNumeralException();
+
+			if(currentValue >= lastValue) 
+				value+=currentValue;
+			else 
+				value -= currentValue; 			
+			lastValue = currentValue;
+		}
+		return value;
 	}
+	
+	private int getSegmentValue( String segment )
+	{
+		for (int i = 0; i < numeralValues.length; i++) {
+			if( numeralValues[i].equals( segment ) )
+			{
+				return numericValues[i];
+			}
+		}
+		return -1;
+	}	
 
 }
