@@ -73,7 +73,7 @@ public class RomanNumeralConverterDriver {
 			}
 			catch( ConverterExecutionException ex )
 			{
-				if( ex.getCause() != null && ex.getCause() instanceof NotARomanNumeralException )
+				if( ex.getCause() != null && ex.getCause() instanceof NotAValidNumeralException )
 				{
 					System.out.println( "The value entered can't be converted..."  + "It's either invalid or exceeds the max roman numeral of 3999." );
 				}

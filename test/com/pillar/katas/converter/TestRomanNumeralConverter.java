@@ -23,7 +23,7 @@ public class TestRomanNumeralConverter {
 			String romanNumeral = controller.convertTo( 1 );
 			assertEquals( "I", romanNumeral );
 		}
-		catch( NotARomanNumeralException ex )
+		catch( NotAValidNumeralException ex )
 		{
 			fail( "Value could not be represented as a roman numeral." );
 		}
@@ -39,7 +39,7 @@ public class TestRomanNumeralConverter {
 			System.out.println( romanNumeral );
 			assertEquals( "III", romanNumeral );
 		}
-		catch( NotARomanNumeralException ex )
+		catch( NotAValidNumeralException ex )
 		{
 			fail( "Value could not be represented as a roman numeral." );			
 		}
@@ -56,7 +56,7 @@ public class TestRomanNumeralConverter {
 			System.out.println( romanNumeral );
 			assertEquals( "IX", romanNumeral );
 		}
-		catch( NotARomanNumeralException ex )
+		catch( NotAValidNumeralException ex )
 		{
 			fail( "Value could not be represented as a roman numeral." );			
 		}
@@ -72,7 +72,7 @@ public class TestRomanNumeralConverter {
 			System.out.println( romanNumeral );
 			assertEquals( "MLXVI", romanNumeral );
 		}
-		catch( NotARomanNumeralException ex )
+		catch( NotAValidNumeralException ex )
 		{
 			fail( "Value could not be represented as a roman numeral." );			
 		}
@@ -88,7 +88,7 @@ public class TestRomanNumeralConverter {
 			System.out.println( romanNumeral );
 			assertEquals( "MCMLXXXIX", romanNumeral );
 		}
-		catch( NotARomanNumeralException ex )
+		catch( NotAValidNumeralException ex )
 		{
 			fail( "Value could not be represented as a roman numeral." );			
 		}
@@ -103,7 +103,7 @@ public class TestRomanNumeralConverter {
 			controller.convertTo( 4000 );
 			fail( "!!!YOU MESSED UP: There is no roman numeral that can be represented here!!!" );
 		}
-		catch( NotARomanNumeralException ex )
+		catch( NotAValidNumeralException ex )
 		{
 			assertTrue( true );
 		}
@@ -119,7 +119,7 @@ public class TestRomanNumeralConverter {
 			controller.convertTo( -4000 );
 			fail( "!!!YOU MESSED UP: There is no roman numeral that can be represented here!!!" );
 		}
-		catch( NotARomanNumeralException ex )
+		catch( NotAValidNumeralException ex )
 		{
 			assertTrue( true );
 		}
@@ -135,7 +135,7 @@ public class TestRomanNumeralConverter {
 			controller.convertTo( 0 );
 			fail( "!!!YOU MESSED UP: There is no roman numeral that can be represented here!!!" );
 		}
-		catch( NotARomanNumeralException ex )
+		catch( NotAValidNumeralException ex )
 		{
 			assertTrue( true );
 		}		
@@ -152,7 +152,7 @@ public class TestRomanNumeralConverter {
 			int value = controller.convertFrom( roman );
 			assertEquals( expectedValue, value );
 		}
-		catch( NotARomanNumeralException ex )
+		catch( NotAValidNumeralException ex )
 		{
 			fail( "Value is not a roman numeral." );			
 		}
@@ -170,7 +170,7 @@ public class TestRomanNumeralConverter {
 			int value = controller.convertFrom( parameter );
 			assertEquals( expectedValue, value );
 		}
-		catch( NotARomanNumeralException ex )
+		catch( NotAValidNumeralException ex )
 		{
 			fail( "Value is not a roman numeral." );			
 		}
@@ -187,7 +187,7 @@ public class TestRomanNumeralConverter {
 			int value = controller.convertFrom( parameter );
 			assertEquals( expectedValue, value );
 		}
-		catch( NotARomanNumeralException ex )
+		catch( NotAValidNumeralException ex )
 		{
 			fail( "Value is not a roman numeral." );			
 		}
@@ -205,7 +205,7 @@ public class TestRomanNumeralConverter {
 			int value = controller.convertFrom( parameter );
 			assertEquals( expectedValue, value );
 		}
-		catch( NotARomanNumeralException ex )
+		catch( NotAValidNumeralException ex )
 		{
 			fail( "Value is not a roman numeral." );			
 		}
@@ -223,7 +223,7 @@ public class TestRomanNumeralConverter {
 			int value = controller.convertFrom( parameter );
 			assertEquals( expectedValue, value );
 		}
-		catch( NotARomanNumeralException ex )
+		catch( NotAValidNumeralException ex )
 		{
 			fail( "Value is not a roman numeral." );			
 		}
@@ -241,7 +241,7 @@ public class TestRomanNumeralConverter {
 			int value = controller.convertFrom( parameter );
 			assertEquals( expectedValue, value );
 		}
-		catch( NotARomanNumeralException ex )
+		catch( NotAValidNumeralException ex )
 		{
 			fail( "Value is not a roman numeral." );			
 		}
@@ -259,7 +259,7 @@ public class TestRomanNumeralConverter {
 			int value = controller.convertFrom( roman );
 			assertEquals( expectedValue, value );
 		}
-		catch( NotARomanNumeralException ex )
+		catch( NotAValidNumeralException ex )
 		{
 			fail( "Value is not a roman numeral." );			
 		}

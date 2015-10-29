@@ -3,7 +3,7 @@ package com.pillar.katas.converter.commands;
 import com.pillar.katas.converter.ConverterControlFactory;
 import com.pillar.katas.converter.ConverterTypes;
 import com.pillar.katas.converter.IConverterControl;
-import com.pillar.katas.converter.NotARomanNumeralException;
+import com.pillar.katas.converter.NotAValidNumeralException;
 
 public class ConvertFromCommand extends ConverterCommand<Integer> {
 
@@ -22,7 +22,7 @@ public class ConvertFromCommand extends ConverterCommand<Integer> {
 			int value = controller.convertFrom(this.fromValue);
 			super.setResult( new ConverterResult<Integer>(value) );
 		}
-		catch( NotARomanNumeralException ex )
+		catch( NotAValidNumeralException ex )
 		{
 			throw new ConverterExecutionException( ex );
 		}		

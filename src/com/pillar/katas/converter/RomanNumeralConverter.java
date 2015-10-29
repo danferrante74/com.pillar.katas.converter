@@ -24,10 +24,10 @@ public class RomanNumeralConverter implements IConverterControl {
 	 * @see com.pillar.katas.converter.IConverterControl#convertTo(int)
 	 */
 	@Override
-	public String convertTo( int x ) throws NotARomanNumeralException 
+	public String convertTo( int x ) throws NotAValidNumeralException 
 	{		
 		if( x > MAX_ROMAN_NUMERAL || x <= 0 )
-			throw new NotARomanNumeralException();
+			throw new NotAValidNumeralException();
 		
 		StringBuilder numeral = new StringBuilder();		
 		int runningTotal = x;
@@ -49,9 +49,9 @@ public class RomanNumeralConverter implements IConverterControl {
 
 
 	@Override
-	public int convertFrom(String rn) throws NotARomanNumeralException {
+	public int convertFrom(String rn) throws NotAValidNumeralException {
 		if( rn == null || "".equals(rn))
-			throw new NotARomanNumeralException();
+			throw new NotAValidNumeralException();
 		
 		//check that chars I,X,C,M are repeated max 3 times
 		//check that V, L, D are not repeated
@@ -60,7 +60,7 @@ public class RomanNumeralConverter implements IConverterControl {
 			String invalidValue = invalidValues[i];
 			if( rn.indexOf( invalidValue ) >= 0 )
 			{
-				throw new NotARomanNumeralException();				
+				throw new NotAValidNumeralException();				
 			}
 		}
 		
@@ -71,7 +71,7 @@ public class RomanNumeralConverter implements IConverterControl {
 		{
 			currentValue = getSegmentValue( String.valueOf( rn.charAt(i) ) );
 			if( currentValue <= 0 ) 
-				throw new NotARomanNumeralException();
+				throw new NotAValidNumeralException();
 
 			if(currentValue >= lastValue) 
 				value+=currentValue;
