@@ -7,7 +7,7 @@ package com.pillar.katas.converter;
  */
 public class RomanNumeralConverter implements IConverterControl {
 
-	/**this here is the data model!!! It normally would be in another class.  view will never mess with this.**/
+	/**this here is the data model!!! It normally would be in another class.  view will never mess with this**/
 	private static final int[] numericValues    = {1000, 900 , 500, 400 , 100, 90  , 50 ,  40 , 10 ,   9 ,  5 ,   4 ,  1};
 	private static final String[] numeralValues = {"M" , "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
 
