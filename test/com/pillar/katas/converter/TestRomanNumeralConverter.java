@@ -132,4 +132,20 @@ public class TestRomanNumeralConverter {
 			assertTrue( true );
 		}		
 	}	
+	
+	@Test
+	public void whenPassInARomanNumeralToGetNumericValue()
+	{
+		IConverterControl controller = new ConverterControlFactory().getConverter(ConverterTypes.ROMAN);
+		try
+		{
+			int expectedValue = 1;
+			int value = controller.convertFrom( "I" );
+			assertEquals( expectedValue, value );
+		}
+		catch( NotARomanNumeralException ex )
+		{
+			fail( "Value is not a roman numeral." );			
+		}
+	}			
 }

@@ -45,4 +45,12 @@ public class RomanNumeralConverter implements IConverterControl {
 		return numeral.toString();
 	}
 
+
+
+	@Override
+	public int convertFrom(String roman) throws NotARomanNumeralException {
+		// TODO Auto-generated method stub
+		return 1;
+	}
+
 }
