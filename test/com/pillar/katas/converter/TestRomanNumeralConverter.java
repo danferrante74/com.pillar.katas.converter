@@ -1,8 +1,16 @@
 package com.pillar.katas.converter;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import org.junit.Test;
+
+import com.pillar.katas.converter.commands.ConvertFromCommand;
+import com.pillar.katas.converter.commands.ConvertToCommand;
+import com.pillar.katas.converter.commands.ConverterCommand;
+import com.pillar.katas.converter.commands.ConverterExecutionException;
+import com.pillar.katas.converter.commands.ConverterResult;
 
 public class TestRomanNumeralConverter {
 
@@ -166,5 +174,43 @@ public class TestRomanNumeralConverter {
 		{
 			fail( "Value is not a roman numeral." );			
 		}
-	}			
+	}
+	
+	@Test
+	public void whenPassInARomanNumeralToExecutionCommand()
+	{
+		String roman = "MCMLXXXIX";
+		ConverterCommand<Integer> c = new ConvertFromCommand( ConverterTypes.ROMAN, roman ); //convert from a roman numeral
+		try
+		{
+
+			int expectedValue = 1989;
+			c.execute();
+			ConverterResult<Integer> result = c.getResult();
+			assertEquals( expectedValue, result.getResult().intValue() );
+		}
+		catch( ConverterExecutionException ex )
+		{
+			fail( "Value is not a roman numeral." );			
+		}
+	}
+	
+	@Test
+	public void whenPassInANumericValueToExecutionCommand()
+	{
+		int numeric = 1066;
+		ConverterCommand<String> c = new ConvertToCommand( ConverterTypes.ROMAN, numeric); //convert to a roman numeral
+		try
+		{
+
+			String expectedValue = "MLXVI";
+			c.execute();
+			ConverterResult<String> result = c.getResult();
+			assertEquals( expectedValue, result.getResult() );
+		}
+		catch( ConverterExecutionException ex )
+		{
+			fail( "Value is not a roman numeral." );			
+		}
+	}	
 }
